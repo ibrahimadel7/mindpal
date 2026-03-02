@@ -1,0 +1,196 @@
+/* ─── Dashboard Layout ────────────────────────────────────────────────────────── */
+.dashboard-page {
+    padding: 28px 32px;
+    overflow-y: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ─── Header ──────────────────────────────────────────────────────────────────── */
+.dashboard-header {
+    padding-bottom: 4px;
+}
+
+.dashboard-title {
+    font-size: 26px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #f1f0ff, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+}
+
+.dashboard-sub {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* ─── Stat Cards ──────────────────────────────────────────────────────────────── */
+.stat-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--card-accent) 8%, transparent), transparent);
+    border-radius: inherit;
+}
+
+.stat-card:hover {
+    border-color: var(--border-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.stat-icon {
+    font-size: 30px;
+    filter: drop-shadow(0 0 8px var(--card-accent, rgba(139, 92, 246, 0.4)));
+}
+
+.stat-body {
+    position: relative;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--card-accent, var(--text-primary));
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.stat-sub {
+    font-size: 11.5px;
+    color: var(--text-muted);
+}
+
+/* ─── Chart Cards ─────────────────────────────────────────────────────────────── */
+.chart-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.chart-header {
+    padding: 20px 24px 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.chart-header h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 3px;
+}
+
+.chart-header p {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.chart-body {
+    padding: 20px 16px 16px;
+}
+
+/* ─── Custom Tooltip ──────────────────────────────────────────────────────────── */
+.chart-tooltip {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 12.5px;
+    box-shadow: var(--shadow);
+}
+
+.tooltip-label {
+    color: var(--text-muted);
+    font-size: 11px;
+    margin-bottom: 6px;
+}
+
+.tooltip-row {
+    margin: 3px 0;
+    font-weight: 500;
+}
+
+/* ─── States ──────────────────────────────────────────────────────────────────── */
+.dashboard-loading,
+.dashboard-error,
+.dashboard-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 16px;
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 40px;
+}
+
+.dashboard-loading .spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid var(--border);
+    border-top-color: var(--accent-purple);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.error-icon {
+    font-size: 36px;
+}
+
+.empty-icon {
+    font-size: 52px;
+    margin-bottom: 4px;
+    opacity: 0.7;
+}
+
+.dashboard-empty h2 {
+    font-size: 20px;
+    color: var(--text-primary);
+}
+
+.dashboard-empty p {
+    font-size: 14px;
+    color: var(--text-muted);
+    max-width: 340px;
+    line-height: 1.6;
+}

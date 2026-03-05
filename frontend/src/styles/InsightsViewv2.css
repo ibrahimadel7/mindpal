@@ -1,0 +1,331 @@
+/* ─── Insights View Layout ────────────────────────────────────────────────────────── */
+.insights-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 20px;
+  padding: 32px 40px;
+  overflow-y: auto;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+/* ─── Header ────────────────────────────────────────────────────────────────────────────── */
+.insights-header {
+  margin-bottom: 12px;
+}
+
+.insights-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+  letter-spacing: -0.5px;
+}
+
+.insights-header p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ─── Loading State ────────────────────────────────────────────────────────────────────────── */
+.insights-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--text-muted);
+  font-size: 14px;
+  height: 100%;
+  padding: 40px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ─── Empty State ────────────────────────────────────────────────────────────────────────── */
+.insights-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+  padding: 60px 40px;
+  color: var(--text-muted);
+  height: 100%;
+}
+
+.empty-illustration {
+  font-size: 80px;
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.empty-illustration svg {
+  width: 80px;
+  height: 80px;
+}
+
+.insights-empty h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.insights-empty p {
+  font-size: 14px;
+  max-width: 400px;
+  margin: 0;
+}
+
+/* ─── Section ────────────────────────────────────────────────────────────────────────────── */
+.insights-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeIn 0.3s ease-out backwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 20px 0 0 0;
+  padding: 0;
+  letter-spacing: -0.3px;
+}
+
+/* ─── Summary Cards ────────────────────────────────────────────────────────────────────────── */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+/* ─── Emotion List ────────────────────────────────────────────────────────────────────────── */
+.emotion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-top: 12px;
+}
+
+.emotion-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  background: rgba(166, 134, 118, 0.04);
+}
+
+.emotion-rank {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-primary);
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.emotion-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.emotion-count {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ─── Time Analysis Grid ────────────────────────────────────────────────────────────────────────── */
+.time-analysis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.time-card {
+  padding: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.time-card:hover {
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow);
+}
+
+.time-period {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.time-emotion {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.time-count {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.time-empty {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ─── Peak Times Grid ────────────────────────────────────────────────────────────────────────── */
+.peak-times-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+/* ─── Habit Grid ────────────────────────────────────────────────────────────────────────── */
+.habit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+/* ─── Correlations Grid ────────────────────────────────────────────────────────────────────────── */
+.correlations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.correlation-card {
+  padding: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.correlation-card:hover {
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow);
+}
+
+.correlation-habit {
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.correlation-emotions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.linked-emotion {
+  font-size: 12px;
+  color: var(--text-secondary);
+  padding: 4px 6px;
+  background: rgba(166, 134, 118, 0.05);
+  border-radius: 3px;
+}
+
+/* ─── Responsive ────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .insights-view {
+    padding: 20px 16px;
+    gap: 16px;
+  }
+
+  .insights-header h1 {
+    font-size: 24px;
+  }
+
+  .summary-cards,
+  .time-analysis-grid,
+  .peak-times-grid,
+  .habit-grid,
+  .correlations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .emotion-list {
+    padding: 12px;
+  }
+}
+
+/* ─── Scrollbar ────────────────────────────────────────────────────────────────────────── */
+.insights-view::-webkit-scrollbar {
+  width: 6px;
+}
+
+.insights-view::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.insights-view::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+.insights-view::-webkit-scrollbar-thumb:hover {
+  background: var(--border-dark);
+}

@@ -1,9 +1,20 @@
-# Environment Variables
+# ═══════════════════════════════════════════════════════════════
+# MindPal v2.0 - Secure Deployment Configuration
+# ═══════════════════════════════════════════════════════════════
+
+# ─── Environment Variables & Secrets ──────────────────────────
 .env
 .env.local
 .env.*.local
+.env.production
+.env.development
+*.env
+**/secrets/
+*.pem
+*.key
+*.cert
 
-# Python
+# ─── Python ───────────────────────────────────────────────────
 __pycache__/
 *.py[cod]
 *$py.class
@@ -21,43 +32,136 @@ parts/
 sdist/
 var/
 wheels/
+pip-wheel-metadata/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
 MANIFEST
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+
+# ─── Python Virtual Environments ──────────────────────────────
 .venv/
 venv/
 ENV/
 env/
-.venv/
+.venv
+python-env/
+py-env/
 
-# Node
+# ─── Node / React ─────────────────────────────────────────────
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
 .npm
+.yarn-integrity
+.next
+.nuxt
+.cache
 
-# IDE
+# Frontend Build Output
+frontend/build/
+frontend/dist/
+frontend/.cache/
+build/
+dist/
+
+# ─── Database Files ───────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-shm
+*.db-wal
+mindpal.db
+backend/mindpal.db
+backend/*.db
+
+# ─── Model Cache & ML Files ───────────────────────────────────
+huggingface_cache/
+.cache/
+*.h5
+*.pkl
+*.model
+*.bin
+models/
+checkpoints/
+
+# ─── IDE & Editors ────────────────────────────────────────────
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# ─── OS Files ─────────────────────────────────────────────────
 .DS_Store
-
-# Database
-*.db
-*.sqlite
-*.sqlite3
-
-# OS
 Thumbs.db
-.DS_Store
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
 
-# Dependencies
-.venv/
-node_modules/
-
-# Logs
+# ─── Logs & Debug Files ───────────────────────────────────────
 *.log
+logs/
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ─── Temporary & Test Files ───────────────────────────────────
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+.recommenders
+test_*.py
+*_test.py
+scratch/
+playground/
+
+# ─── Deployment & CI/CD ───────────────────────────────────────
+.terraform/
+*.tfstate
+*.tfstate.backup
+.serverless/
+.deployment
+.vercel
+
+# ─── Security & Sensitive Data ────────────────────────────────
+*.pem
+*.key
+*.cert
+*.csr
+credentials.json
+service-account.json
+api_keys.txt
+
+# ─── Backend Specific ─────────────────────────────────────────
+backend/check_schema.py
+backend/test_*.py
+backend/*.db
+backend/logs/
+
+# ─── Keep Important Files ─────────────────────────────────────
+!.gitignore
+!.gitattributes
+!requirements.txt
+!package.json
+!README.md
